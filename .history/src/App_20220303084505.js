@@ -37,10 +37,10 @@ class App extends React.Component {
   render() {
     const { selectedVideo, videos } = this.state;
     return (
-      <Grid justifyContent="center" container spacing={8}>
+      <Grid justifyContent="center" container spacing={10}>
         <Grid item xs={12}>
           <Grid container spacing={10}>
-            <Grid item xs={12} width="90%">
+            <Grid item xs={12}>
               <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={8}>

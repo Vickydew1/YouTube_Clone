@@ -9,15 +9,6 @@ class App extends React.Component {
     videos: [],
     selectedVideo: null,
   };
-
-  componentDidMount() {
-    this.handleSubmit("pdf generation with react and node");
-  }
-
-  onVideoSlect = (video) => {
-    this.setState({ selectedVideo: video });
-  };
-
   handleSubmit = async (searchTerm) => {
     const response = await youtube.get("search", {
       params: {
@@ -37,17 +28,17 @@ class App extends React.Component {
   render() {
     const { selectedVideo, videos } = this.state;
     return (
-      <Grid justifyContent="center" container spacing={8}>
+      <Grid justifyContent="center" container spacing={10}>
         <Grid item xs={12}>
           <Grid container spacing={10}>
-            <Grid item xs={12} width="90%">
+            <Grid item xs={12}>
               <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={8}>
               <VideoDetail video={selectedVideo} />
             </Grid>
             <Grid item xs={4}>
-              <VideoList videos={videos} onVideoSlect={this.onVideoSlect} />
+              <VideoList videos={videos} />
             </Grid>
           </Grid>
         </Grid>
